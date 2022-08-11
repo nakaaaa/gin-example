@@ -14,5 +14,21 @@ func main() {
 		})
 	})
 
+	v1 := r.Group("/")
+	{
+		{
+			tests := v1.Group("/tests")
+			{
+				tests.GET("", testFunc)
+			}
+		}
+	}
+
 	r.Run() // default port 8080
+}
+
+func testFunc(c *gin.Context) {
+	c.JSON(http.StatusOK, gin.H{
+		"message": "OK",
+	})
 }
