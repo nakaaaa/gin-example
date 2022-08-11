@@ -3,6 +3,7 @@ package main
 import (
 	"net/http"
 
+	"github.com/Nakaaaa/gin-example/route"
 	"github.com/gin-gonic/gin"
 )
 
@@ -14,21 +15,16 @@ func main() {
 		})
 	})
 
+	rt := route.Tests{}
 	v1 := r.Group("/")
 	{
 		{
 			tests := v1.Group("/tests")
 			{
-				tests.GET("", testFunc)
+				tests.GET("", rt.Index())
 			}
 		}
 	}
 
 	r.Run() // default port 8080
-}
-
-func testFunc(c *gin.Context) {
-	c.JSON(http.StatusOK, gin.H{
-		"message": "OK",
-	})
 }
