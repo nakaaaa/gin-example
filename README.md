@@ -21,3 +21,4 @@ responseは以下のとおり
 - Method: Get
 ## 削除
 - `/user/:id`
+- Method: Delete
