@@ -42,7 +42,7 @@ func (rp *UserRepository) AddOrUpdate(db *gorm.DB, user *model.User) (*model.Use
 }
 
 func (rp *UserRepository) DeleteUser(db *gorm.DB, userID int) error {
-	err := db.Where("`user_id = ?`", userID).Delete(&model.User{}).Error
+	err := db.Where("`user_id` = ?", userID).Delete(&model.User{}).Error
 	if err != nil {
 		if !errors.Is(err, gorm.ErrRecordNotFound) {
 			return err

@@ -26,7 +26,7 @@ func main() {
 				tests.GET("", rt.Index())
 				tests.GET("/user/:id", rt.GetUser(db))
 				tests.POST("/user", rt.AddOrUpdate(db))
-				tests.DELETE("/user:id", rt.DeleteUser(db))
+				tests.DELETE("/user/:id", rt.DeleteUser(db))
 			}
 		}
 	}
